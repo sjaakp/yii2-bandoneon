@@ -19,6 +19,7 @@
     border-top-color: inherit;
 }
 .sjaakp-bandoneon > *:nth-child(even)   {
+    display: none;
     padding: 0 1.65em;
     border-left: .3em solid #eee;
 }
