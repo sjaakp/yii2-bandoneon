@@ -24,7 +24,7 @@ The preferred way to install **Bandoneon** is through [Composer](https://getcomp
 
 Or run:
 
-	$ php composer.phar require sjaakp/yii2-bandoneon "*"
+	composer require sjaakp/yii2-bandoneon "*"
 
 You can manually install **Bandoneon** by [downloading the source in ZIP-format](https://github.com/sjaakp/yii2-bandoneon/archive/master.zip).
  
