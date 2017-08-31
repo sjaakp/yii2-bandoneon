@@ -13,7 +13,8 @@
 
         var settings = $.extend({
             upDuration: 200,
-            downDuration: 400
+            downDuration: 400,
+			multiopen: false
         }, options );
 
         return this.each(function() {
@@ -21,16 +22,21 @@
 
             acc.children(":even").click(function(evt) {
                 var heading = $(this),
-                    section = heading.next();
+					section = heading.next();
                 if (heading.hasClass("open"))    {
                     section.slideUp(settings.upDuration);
                 }
                 else    {
-                    acc.children(":odd").not(section).slideUp(settings.upDuration, function() {
-                        section.slideDown(settings.downDuration);
-                    });
-                    acc.children(":even").not(heading).removeClass("open");
-                }
+					
+					if (settings.multiopen) {
+						section.slideDown(settings.downDuration);						
+					} else {
+						acc.children(":odd").not(section).slideUp(settings.upDuration, function() {
+							section.slideDown(settings.downDuration);
+						});
+						acc.children(":even").not(heading).removeClass("open");
+					}
+                }				
                 heading.toggleClass("open");
             });
             acc.children(":even.open").each(function() {
