@@ -2,8 +2,8 @@
 /*jslint nomen: true, unparam: true, white: true */
 /**
  * MIT licence
- * Version 1.0.1
- * Sjaak Priester, Amsterdam 02-08-2014 ... 02-08-2015.
+ * Version 1.0.2
+ * Sjaak Priester, Amsterdam 02-08-2014 ... 01-03-2018.
  */
 
 (function ( $ ) {
@@ -26,9 +26,8 @@
                     section.slideUp(settings.upDuration);
                 }
                 else    {
-                    acc.children(":odd").not(section).slideUp(settings.upDuration, function() {
-                        section.slideDown(settings.downDuration);
-                    });
+                    section.slideDown(settings.downDuration);
+                    acc.children(":odd").not(section).slideUp(settings.upDuration);
                     acc.children(":even").not(heading).removeClass("open");
                 }
                 heading.toggleClass("open");
