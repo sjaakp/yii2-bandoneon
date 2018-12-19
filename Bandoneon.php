@@ -56,9 +56,8 @@ class Bandoneon extends Widget {
      * @var array
      * client options for jquery.bandoneon.js
      * two values may be set:
-     * - upDuration (default 200)
-     * - downDuration (default 400)
-     * Both may be set to a number indicating the duration of the animation in milliseconds, to 'fast' (200 ms), or to 'slow' (600 ms).
+     * - speed (in pixels per second; default: 200)
+     * - timing (default: 'ease-in-out')
      */
     public $clientOptions = [];
 
@@ -71,23 +70,19 @@ class Bandoneon extends Widget {
     public function init()    {
         $view = $this->getView();
 
-        $asset = new BandoneonAsset([
-            'publishOptions' => [
-                'forceCopy' => true
-            ]
-        ]);
+        $asset = new BandoneonAsset();
         $asset->register($view);
 
         if (!isset($this->options['id'])) {
             $this->options['id'] = $this->getId();
         }
-        $class = isset($this->options['class']) ? $this->options['class'] : '';
-        $this->options['class'] = trim($class . ' sjaakp-bandoneon');
         echo Html::beginTag($this->tag, $this->options);
 
         $id = $this->getId();
-        $opts = !empty($this->clientOptions) ? Json::encode($this->clientOptions) : '{}';
-        $view->registerJs("$('#$id').bandoneon($opts);");
+        $var = 'q' . str_replace('-', '_', $id);
+
+        $opts = empty($this->clientOptions) ? '{}' : Json::encode($this->clientOptions);
+        $view->registerJs("window.$var = Bandoneon.widget('$id', $opts);");
     }
 
     public function run()    {

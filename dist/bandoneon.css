@@ -1,4 +1,7 @@
 @charset "utf-8";
+
+
+
 .sjaakp-bandoneon > *:nth-child(odd)    {
     cursor: pointer;
 }
@@ -19,7 +22,8 @@
     border-top-color: inherit;
 }
 .sjaakp-bandoneon > *:nth-child(even)   {
-    display: none;
+    overflow: hidden;
+    height: 0;
     padding: 0 1.65em;
     border-left: .3em solid #eee;
 }

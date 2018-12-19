@@ -1,7 +1,7 @@
-Bandoneon
+Bandoneon 2.0
 ==============
 
-## Lightweight accordion widget for Yii 2.0 ##
+## Lightweight accordion widget for Yii2 ##
 
 
 ### Motivation ###
@@ -12,13 +12,13 @@ In my opinion, there are some issues with the standard [Yii2 JUI Accordion](http
 - It generates HTML with hard wired class references, introducing new and probably unintended styling.
 - It is overkill, being dependant on the complete jQuery UI library.
  
-**Bandoneon** is a lightweight, versatile replacement widget for the JUI Accordion. The Javascript is less than 700 bytes. It only depends on jQuery core, which you would have loaded in your page anyway.
+**Bandoneon** is a lightweight, versatile replacement widget for the JUI Accordion. The Javascript is less than 1400 bytes.  It has no dependencies at all, so it could be used on jQuery-less pages.
 
 [Here](http://sjaakpriester.nl/software/bandoneon) are some demo's of the **Bandoneon** widget. 
 
 ## Installation ##
 
-The preferred way to install **Bandoneon** is through [Composer](https://getcomposer.org/). Either add the following to the require section of your `composer.json` file:
+The preferred way to install **Bandoneon** is through [Composer](https://getcomposer.org/). Either add the following to the `require` section of your `composer.json` file:
 
 	"sjaakp/yii2-bandoneon": "*"
 
@@ -68,7 +68,7 @@ You can use any sensible HTML tags for the headings and the sections. For instan
 
 	<?php Bandoneon::end() ?>
 
-**Bandoneon** makes no assumptions about the HTML of the headings and the sections. It uses the jQuery selectors `:odd` and `:even` to differentiate between them. The HTML in the sections, and in the headings as well, can be as convoluted as you like.
+**Bandoneon** makes no assumptions about the HTML of the headings and the sections. It uses the CSS selectors for odd and even elements to differentiate between them. The HTML in the sections, and in the headings as well, can be as convoluted as you like.
 
 ### Initially open ###
 
@@ -104,12 +104,12 @@ This may come in handy if you want to create a **Bandoneon**, based on a HTML de
 
 	<?php Bandoneon::end() ?>
 
-### Speed ###
+### Options ###
 
-The speed of the animation can be modified by setting the following `clientOptions` in `Bandoneon::begin()`.
+**Bandoneon** has two client options:
 
-- `upDuration`: duration of the slide-up of a section, in milliseconds. Default: `200`.
-- `downDuration`: duration of the slide-down of a section, in milliseconds. Default: `600`.
+- `speed`: The speed of the opening and closing of a section, in pixels per second. Default: `200`.
+- `timing`: The timing function of the animation. More information on [Mozilla developers network](https://developer.mozilla.org/en-US/docs/Web/CSS/single-transition-timing-function). Default: `ease-in-out`.
 
 A very slow **Bandoneon** might be coded like this:
 
@@ -117,8 +117,7 @@ A very slow **Bandoneon** might be coded like this:
 
 	<?php Bandoneon::begin([
 			'clientOptions' => [
-		        'upDuration' => 2000,
-		        'downDuration' => 4000
+		        'speed' => 12,
 			]
 		]) ?>
 
@@ -126,3 +125,12 @@ A very slow **Bandoneon** might be coded like this:
 	    <div>Lorem ipsum ... felis ultricies.</div>
 
 		...
+
+
+## Building bandoneon.js ##
+
+Be sure that `npm` [is installed](https://www.npmjs.com/get-npm).
+
+Run `npm install`.
+
+Run `rollup -c`.

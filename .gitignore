@@ -1,4 +1,2 @@
-protected/runtime/*
-!protected/runtime/.gitignore
-protected/data/*.db
-themes/classic/views/
+node_modules/*
+package-lock.json

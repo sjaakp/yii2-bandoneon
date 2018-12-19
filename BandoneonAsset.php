@@ -10,15 +10,17 @@ namespace sjaakp\bandoneon;
 use yii\web\AssetBundle;
 
 class BandoneonAsset extends AssetBundle {
-    public $depends = [
-        'yii\web\JqueryAsset',
+    public $js = [
+        'bandoneon.js'
+    ];
+
+    public $css = [
+        'bandoneon.css'
     ];
 
     public function init()    {
         parent::init();
 
-        $this->sourcePath = __DIR__ . DIRECTORY_SEPARATOR . 'assets';
-        $this->js[] = YII_DEBUG ? 'jquery.bandoneon.js' : 'jquery.bandoneon.min.js';
-        $this->css[] = 'bandoneon.css';
+        $this->sourcePath = __DIR__ . DIRECTORY_SEPARATOR . 'dist';
     }
 }
