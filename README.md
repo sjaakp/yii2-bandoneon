@@ -3,6 +3,9 @@ Bandoneon 2.0
 
 ## Lightweight accordion widget for Yii2 ##
 
+[![Latest Stable Version](https://poser.pugx.org/sjaakp/yii2-bandoneon/v/stable)](https://packagist.org/packages/sjaakp/yii2-bandoneon)
+[![Total Downloads](https://poser.pugx.org/sjaakp/yii2-bandoneon/downloads)](https://packagist.org/packages/sjaakp/yii2-bandoneon)
+[![License](https://poser.pugx.org/sjaakp/yii2-bandoneon/license)](https://packagist.org/packages/sjaakp/yii2-bandoneon)
 
 ### Motivation ###
 

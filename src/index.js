@@ -1,4 +1,3 @@
-/* main js-file. Build with rollup -c */
 
 function Widget(id, options) {
     Object.setPrototypeOf(this, {
